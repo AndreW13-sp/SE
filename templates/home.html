@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <div class="w3-red" style="height:900px;">
+
+<div class="w3-container">
+
+<h2>Convert</h2>
+<div class="w3-display-middle">
+    <div class="w3-panel w3-border w3-hover-border-red">
+        <p><button class="w3-button w3-circle w3-black">Speech to Text</button></p>
+        <p><button class="w3-button w3-circle w3-black">Text to speech</button></p>
+    </div>
+</div>
+<script>
+    fetch('/',{
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({text: 'Hello, world'})
+    }).then(function(response){
+        console.log(response);
+    }).catch(function(error){
+        console.log(error);
+    })
+</script>
+</body>
+</html> 
+
