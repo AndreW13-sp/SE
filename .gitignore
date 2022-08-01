@@ -1,0 +1,13 @@
+# VS Code specific
+.DS_Store
+
+# Python Cache Folders
+__pycache__
+
+# Virtualenv
+venv/
+
+# Optional files
+test.py
+*.aif
+*.mp3
