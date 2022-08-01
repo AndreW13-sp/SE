@@ -6,8 +6,8 @@ import speech_recognition as sr
 
 # Application Settings
 app = Flask(__name__)
+app.config["CORS_HEADERS"] = "application/json"
 CORS(app, support_credentials=True)
-app.config['CORS_HEADERS']='application/json'
 file_name = "mic.wav"
 
 # API Routes
@@ -16,7 +16,7 @@ file_name = "mic.wav"
 def index():
    if request.method == "POST":
       data = request.get_json()
-      myobj = gTTS(text=data.get('text'), lang="en", slow=False)
+      myobj = gTTS(text=data.get("text"), lang="en", slow=False)
       myobj.save(file_name)
       return send_file(Path(file_name), mimetype="audio/wav", as_attachment=True, download_name=file_name)
    return render_template("home.html")

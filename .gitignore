@@ -7,7 +7,10 @@ __pycache__
 # Virtualenv
 venv/
 
-# Optional files
+# Local testing files
 test.py
+
+# Music output files
 *.aif
 *.mp3
+*.wav
