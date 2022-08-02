@@ -35,8 +35,8 @@
       </div>
    </div>
    
-   <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
-   <!--<script>eruda.init();</script>-->
+   <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+   <script>eruda.init();</script>
    <script type="text/javascript" charset="utf-8">
       const fileUploader = document.getElementById("mySpeechfile");
       const convertToSpeechBtn = document.getElementById("convertToSpeechBtn");
@@ -54,13 +54,13 @@
          })
          .then(res => res.arrayBuffer())
          .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
-         .then(decodedAudio => { audio = decodedAudio; })
+         .then(decodedAudio => audioPlayback(decodedAudio))
          .catch(err => console.error(err));
       }
       
-      function audioPlayback() {
+      function audioPlayback(audioData) {
          const sound = audioCtx.createBufferSource();
-         sound.buffer = audio;
+         sound.buffer = audioData;
          sound.connect(audioCtx.destination);
          sound.start(audioCtx.currentTime);
       }
