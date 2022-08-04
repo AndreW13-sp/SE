@@ -8,7 +8,7 @@ import speech_recognition as sr
 app = Flask(__name__)
 app.config["CORS_HEADERS"] = "application/json"
 CORS(app, support_credentials=True)
-file_name = "mic.wav"
+file_name = "output/mic.flac"
 
 # API Routes
 @app.route("/", methods=["GET", "POST"])
@@ -29,7 +29,7 @@ def handle_upload():
    
    if action == "SpeechToText":
       recognizer = sr.Recognizer()
-      with sr.AudioFile("./mic.wav") as source:
+      with sr.AudioFile(file) as source:
          audio_text = recognizer.record(source)
          try:
             converted_text = recognizer.recognize_google(audio_text, key=None)
